@@ -1,0 +1,43 @@
+def cambiar_columnas_a_filas(matriz_original):
+  """
+  Función que transforma las columnas de una matriz en filas de otra matriz.
+
+  Args:
+    matriz_original (list of lists): Matriz original con las columnas que se quieren transformar.
+
+  Returns:
+    list of lists: Matriz nueva con las filas transformadas de las columnas de la matriz original.
+  """
+
+  # Obtener el número de columnas de la matriz original
+  num_columnas = len(matriz_original[0])
+
+  # Crear la matriz nueva vacía
+  matriz_nueva = []
+
+  # Recorrer cada columna de la matriz original
+  for i in range(num_columnas):
+    # Crear una fila vacía para cada columna
+    fila_nueva = []
+
+    # Recorrer cada fila de la matriz original
+    for fila in matriz_original:
+      # Agregar el elemento de la columna actual a la fila nueva
+      fila_nueva.append(fila[i])
+
+    # Agregar la fila nueva a la matriz nueva
+    matriz_nueva.append(fila_nueva)
+
+  # Devolver la matriz nueva
+  return matriz_nueva
+
+# Ejemplo de uso
+matriz_original = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+matriz_nueva = cambiar_columnas_a_filas(matriz_original)
+
+print(matriz_nueva)
