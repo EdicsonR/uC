@@ -1,0 +1,11 @@
+matriz_2d = [[1, 2, 3],
+             [4, 5, 6],
+             [7, 8, 9]]
+
+# Acceder a un elemento específico
+print(matriz_2d[1][2])  # Imprime 6
+
+# Recorrer la matriz fila por fila
+for fila in matriz_2d:
+    for elemento in fila:
+        print(elemento
