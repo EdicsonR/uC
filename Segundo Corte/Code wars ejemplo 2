@@ -1,0 +1,16 @@
+matriz_triangular_superior = [[1, 2, 3],
+                             [0, 4, 5],
+                             [0, 0, 6]]
+
+# Verificar si es una matriz triangular superior
+es_triangular_superior = True
+for i in range(len(matriz_triangular_superior)):
+    for j in range(i + 1, len(matriz_triangular_superior[i])):
+        if matriz_triangular_superior[i][j] != 0:
+            es_triangular_superior = False
+            break
+
+if es_triangular_superior:
+    print("Es una matriz triangular superior")
+else:
+    print("No es una matriz triangular superior")
