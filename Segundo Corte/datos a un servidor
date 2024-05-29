@@ -1,0 +1,33 @@
+import time
+import network
+import socket
+
+# Configura la conexión a la red Wi-Fi
+ssid = "SSID_DE_TU_RED"
+password = "CONTRASEÑA_DE_TU_RED"
+
+wlan = network.WLAN(ssid, password)
+wlan.active(True)
+time.sleep(10)
+
+# Conecta a la red
+if not wlan.is_connected():
+  print("Error al conectar a la red Wi-Fi")
+  exit()
+
+# Crea un socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Conecta al servidor web
+server_address = ("www.ejemplo.com", 80)  # Cambia la dirección y el puerto del servidor
+s.connect(server_address)
+
+# Lee la temperatura y la humedad (suponiendo que ya tienes el código para hacerlo)
+temperatura = 25  # Valor de ejemplo
+humedad = 50  # Valor de ejemplo
+
+# Crea una cadena con los datos
+datos = "temperatura=" + str(temperatura) + "&humedad=" + str(humedad)
+
+# Envía los datos al servidor web
+s.send(
