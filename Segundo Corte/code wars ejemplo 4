@@ -1,0 +1,19 @@
+def crear_matriz_rotacion(angulo):
+  """
+  Función que crea una matriz de rotación 2D en el sentido contrario a las agujas del reloj.
+
+  Args:
+    angulo (float): Ángulo de rotación en radianes.
+
+  Returns:
+    list of lists: Matriz de rotación 2D.
+  """
+
+  c = cos(angulo)
+  s = sin(angulo)
+  return [[c, -s],
+          [s, c]]
+
+angulo = pi / 4
+matriz_rotacion = crear_matriz_rotacion(angulo)
+print(matriz_rotacion)
