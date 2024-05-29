@@ -1,0 +1,25 @@
+def crear_matriz_identidad(n):
+  """
+  Función que crea una matriz identidad de tamaño n x n.
+
+  Args:
+    n (int): Tamaño de la matriz (filas y columnas).
+
+  Returns:
+    list of lists: Matriz identidad de tamaño n x n.
+  """
+
+  matriz_identidad = []
+  for i in range(n):
+    fila = []
+    for j in range(n):
+      if i == j:
+        fila.append(1)
+      else:
+        fila.append(0)
+    matriz_identidad.append(fila)
+  return matriz_identidad
+
+n = 4
+matriz_identidad = crear_matriz_identidad(n)
+print(matriz_identidad)
