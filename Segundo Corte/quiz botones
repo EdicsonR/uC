@@ -1,0 +1,49 @@
+import threading
+
+# Lista de números ganadores y perdedores
+numeros_ganadores = ['111', '002', '000', '564', '849', '558']
+numeros_perdedores = ['696']
+
+# Función para el juego de un jugador
+def juego(jugador_id):
+    while True:
+        print(f"\nTurno del Jugador {jugador_id}")
+
+        # Pedir al jugador que ingrese tres números de un solo dígito
+        digitos = []
+        for i in range(3):
+            while True:
+                try:
+                    numero = int(input(f"Jugador {jugador_id}, ingrese el dígito {i+1} (0-9): "))
+                    if 0 <= numero <= 9:
+                        digitos.append(str(numero))
+                        break
+                    else:
+                        print("Por favor, ingrese un número de un solo dígito (0-9).")
+                except ValueError:
+                    print("Entrada no válida. Por favor, ingrese un número de un solo dígito (0-9).")
+        
+        # Formar el número de tres dígitos
+        numero = ''.join(digitos)
+        print(f"Jugador {jugador_id} formó el número: {numero}")
+        
+        # Verificar si el número está en la lista de ganadores o perdedores
+        if numero in numeros_perdedores:
+            print(f"Jugador {jugador_id}, lo siento, ha sacado un número perdedor. Usted pierde.")
+            break
+        elif numero in numeros_ganadores:
+            print(f"¡Felicidades Jugador {jugador_id}! Usted ha ganado.")
+            break
+        else:
+            print("No es un número ganador. Intente de nuevo.")
+
+# Crear y arrancar los hilos para los tres jugadores
+hilos = []
+for i in range(1, 4):
+    hilo = threading.Thread(target=juego, args=(i,))
+    hilos.append(hilo)
+    hilo.start()
+
+# Esperar a que todos los hilos terminen
+for hilo in hilos:
+    hilo.join()
