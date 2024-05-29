@@ -23,7 +23,7 @@ cam_bus = busio.I2C(board.GP19, board.GP18)
 cam = OV7670(
     cam_bus,
     data_pins=[
-        board.GP10,  # Cambiado de GP0 a GP10
+        board.GP0,  # Cambiado de GP0 a GP10
         board.GP1,
         board.GP2,
         board.GP3,
